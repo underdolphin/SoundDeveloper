@@ -5,6 +5,9 @@ module.exports = {
 
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
     instances: 1,
+    node_args: [
+      "--experimental-worker" // After become stable, erase this
+    ],
     execmdode: "cluster",
     autorestart: true,
     watch: ["./dist/lib", "./dist/index.js"],

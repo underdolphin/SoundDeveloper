@@ -12,4 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-console.log("example");
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import Vue from "vue";
+import Vuetify from "vuetify";
+import app from "../view/app.vue";
+
+Vue.use(Vuetify, {
+    iconfont: "mdi"
+});
+new Vue(app).$mount("#app");
