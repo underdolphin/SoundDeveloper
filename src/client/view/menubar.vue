@@ -15,17 +15,28 @@
 <template>
   <ul id="menubar">
     <li>
-      <div>File</div>
-      <ul>
-        <li>
-          <div>New File</div>
-          <div class="nav-division"></div>
-          <div>Exit</div>
-        </li>
-      </ul>
+      <div class="first-level-column">
+        <input type="button" value="File" class="first-level-column-select">
+        <ul class="menu-list second-level-container">
+          <li>
+            <div>New File</div>
+          </li>
+          <li>
+            <div>New Window</div>
+          </li>
+          <li>
+            <div class="border"></div>
+          </li>
+          <li>
+            <div>Exit</div>
+          </li>
+        </ul>
+      </div>
     </li>
     <li>
-      <div>Edit</div>
+      <div class="first-level-column">
+        <input type="button" value="Edit" class="first-level-column-select">
+      </div>
     </li>
     <li>
       <div>View</div>
@@ -45,7 +56,6 @@ export default Vue.extend({});
 <style scoped>
 #menubar {
   display: flex;
-  background-color: darkslategrey;
   justify-content: left;
   list-style-type: none;
   padding: 5px;
@@ -68,34 +78,21 @@ export default Vue.extend({});
   padding: 0px, 5px, 0px;
 }
 
-#menubar li ul {
-  list-style: none;
-  position: absolute;
-  z-index: 100;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#menubar li ul li {
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  color: #fff;
+.second-level-container {
+  display: none;
   transition: 0.2s;
 }
 
-#menubar li ul li div {
-  background: rgb(17, 32, 32);
-  text-align: left;
-  width: 300%;
-  font-weight: normal;
-}
-
-#menubar li:hover > ul > li {
-  overflow: visible;
-  height: 38px;
+.first-level-column-select:focus + .second-level-container {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 500%;
+  margin-top: 10px;
+  margin-left: -10px;
+  z-index: 100;
 }
 </style>
