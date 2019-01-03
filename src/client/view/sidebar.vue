@@ -13,20 +13,13 @@
 // limitations under the License.
 
 <template>
-  <header>
-    <menubar></menubar>
-  </header>
+  <nav id="sidebar"></nav>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import menubar from "./menubar.vue";
 
-export default Vue.extend({
-  components: {
-    menubar: menubar
-  }
-});
+export default Vue.extend({});
 </script>
 
 <style scoped>

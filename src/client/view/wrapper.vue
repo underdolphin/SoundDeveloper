@@ -12,14 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import Vue from "vue";
-import Vuetify from "vuetify";
-import sidebar from "../view/sidebar.vue";
-import wrapper from "../view/wrapper.vue";
+<template>
+  <div id="wrapper">
+    <header>
+      <menubar></menubar>
+    </header>
+  </div>
+</template>
 
-Vue.use(Vuetify, {
-    iconfont: "mdi"
+<script lang="ts">
+import Vue from "vue";
+import menubar from "./menubar.vue";
+
+export default Vue.extend({
+  components: {
+    menubar: menubar
+  }
 });
-new Vue(sidebar).$mount("#sidebar");
-new Vue(wrapper).$mount("#wrapper");
+</script>
+
+<style scoped>
+#wrapper {
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#navigation-toggle:checked ~ #wrapper {
+  transform: translateX(250px);
+}
+</style>
